@@ -55,6 +55,7 @@ module.exports = function(wifi_manager,scanResult, callback) {
             wifi_ssid:      request.body.wifi_ssid,
             wifi_passcode:  request.body.wifi_passcode,
         };
+        console.log(JSON.stringify(conn_info));
 
         // TODO: If wifi did not come up correctly, it should fail
         // currently we ignore ifup failures.
