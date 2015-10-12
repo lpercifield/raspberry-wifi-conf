@@ -114,7 +114,7 @@ module.exports = function() {
     _is_wifi_enabled_sync = function(info) {
         // If we are not an AP, and we have a valid
         // inet_addr - wifi is enabled!
-        console.log(JSON.stringify(info));
+        //console.log(JSON.stringify(info));
         if (null        == _is_ap_enabled_sync(info) &&
             "<unknown>" != info["inet_addr"]         &&
             "<unknown>" == info["unassociated"] ) {
@@ -145,7 +145,7 @@ module.exports = function() {
     _is_ap_enabled = function(callback) {
         _get_wifi_info(function(error, info) {
             if (error) return callback(error, null);
-            console.log(info.toString());
+            //console.log(info.toString());
             return callback(null, _is_ap_enabled_sync(info));
         });
     },
