@@ -4,7 +4,7 @@ var _       = require("underscore")._,
     exec    = require("child_process").exec,
     iwlist     = require("./iwlist"),
     config  = require("../config.json");
-var scanResult;
+
 
 // Better template format
 _.templateSettings = {
@@ -169,6 +169,7 @@ module.exports = function() {
                 console.log("\nAP is not enabled yet... enabling...");
             }
 
+            var scanResult;
             var context = config.access_point;
             context["enable_ap"] = true;
             context["wifi_driver_type"] = config.wifi_driver_type;
@@ -218,13 +219,12 @@ module.exports = function() {
                         context, next_step);
                 },
                 function scan_networks(next_step){
-		_reboot_wireless_network(context.wifi_interface,function(){
-                  iwlist(function(error,result){
-                    scanResult = result;
-                    
-			next_step();
-                  });
-		});
+		                _reboot_wireless_network(context.wifi_interface,function(){
+                      iwlist(function(error,result){
+                        scanResult = result;
+			                  next_step();
+                      });
+		                });
                 },
 
                 function reboot_network_interfaces(next_step) {
