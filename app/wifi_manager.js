@@ -223,7 +223,7 @@ module.exports = function() {
                       iwlist(function(error,result){
                         scanResult = result;
                         console.log("Got scan result")
-			                  next_step(scanResult);
+			                  next_step();
                       });
 		                });
                 },
