@@ -44,6 +44,7 @@ module.exports = function(wifi_manager,scanResult, callback) {
     // the responses to these are typically JSON
     app.get("/api/rescan_wifi", function(request, response) {
         console.log("Server got /rescan_wifi");
+        console.log(JSON.stringify(scanResult));
         //iwlist(function(error, result) {
         log_error_send_success_with(scanResult[0], null, response);
         //});

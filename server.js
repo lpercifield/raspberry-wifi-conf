@@ -52,7 +52,7 @@ async.series([
                 console.log("... AP Enable ERROR: " + error);
             } else {
                 console.log("... AP Enable Success!");
-                //scanResults = scanResult;
+                scanResults = scanResult;
                 //console.log(JSON.stringify(scanResults));
             }
             next_step(error);
