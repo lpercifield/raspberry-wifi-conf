@@ -221,7 +221,7 @@ module.exports = function() {
 		_reboot_wireless_network(context.wifi_interface,function(){
                   iwlist(function(error,result){
                     scanResult = result;
-                    console.log(JSON.stringify(result));
+                    
 			next_step();
                   });
 		});
