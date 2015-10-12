@@ -23,7 +23,7 @@ function log_error_send_success_with(success_obj, error, response) {
 /*****************************************************************************\
     Returns a function which sets up the app and our various routes.
 \*****************************************************************************/
-module.exports = function(wifi_manager, callback) {
+module.exports = function(wifi_manager,scanResult, callback) {
     var app = express();
 
     // Configure the app
@@ -44,9 +44,9 @@ module.exports = function(wifi_manager, callback) {
     // the responses to these are typically JSON
     app.get("/api/rescan_wifi", function(request, response) {
         console.log("Server got /rescan_wifi");
-        iwlist(function(error, result) {
-            log_error_send_success_with(result[0], error, response);
-        });
+        //iwlist(function(error, result) {
+        log_error_send_success_with(scanResult[0], null, response);
+        //});
     });
 
     app.post("/api/enable_wifi", function(request, response) {

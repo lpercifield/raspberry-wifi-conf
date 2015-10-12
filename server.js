@@ -1,7 +1,8 @@
 var async               = require("async"),
     wifi_manager        = require("./app/wifi_manager")(),
     dependency_manager  = require("./app/dependency_manager")(),
-    config              = require("./config.json");
+    config              = require("./config.json"),
+    scanResults;
 
 /*****************************************************************************\
     1. Check for dependencies
@@ -46,11 +47,12 @@ async.series([
 
     // 3. Turn RPI into an access point
     function enable_rpi_ap(next_step) {
-        wifi_manager.enable_ap_mode(config.access_point.ssid, function(error) {
+        wifi_manager.enable_ap_mode(config.access_point.ssid, function(error, scanResult) {
             if(error) {
                 console.log("... AP Enable ERROR: " + error);
             } else {
                 console.log("... AP Enable Success!");
+                scanResults = scanResult;
             }
             next_step(error);
         });
@@ -61,7 +63,7 @@ async.series([
     //    server up. It uses a small angular application which allows
     //    us to choose the wifi of our choosing.
     function start_http_server(next_step) {
-        require("./app/api.js")(wifi_manager, next_step);
+        require("./app/api.js")(wifi_manager,scanResults, next_step);
     },
 
 ], function(error) {
