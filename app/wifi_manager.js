@@ -280,21 +280,21 @@ module.exports = function() {
                 },
 
                 // Stop the DHCP server...
-                function restart_dhcp_service(next_step) {
-                    exec("service isc-dhcp-server stop", function(error, stdout, stderr) {
-                        //console.log(stdout);
-                        if (!error) console.log("... dhcp server stopped!");
-                        next_step();
-                    });
-                },
-                // Stop the DHCP server...
-                function stop_hostapd_service(next_step) {
-                    exec("service hostapd stop", function(error, stdout, stderr) {
-                        //console.log(stdout);
-                        if (!error) console.log("... hostapd stopped!");
-                        next_step();
-                    });
-                },
+                // function restart_dhcp_service(next_step) {
+                //     exec("service isc-dhcp-server stop", function(error, stdout, stderr) {
+                //         //console.log(stdout);
+                //         if (!error) console.log("... dhcp server stopped!");
+                //         next_step();
+                //     });
+                // },
+                // // Stop the DHCP server...
+                // function stop_hostapd_service(next_step) {
+                //     exec("service hostapd stop", function(error, stdout, stderr) {
+                //         //console.log(stdout);
+                //         if (!error) console.log("... hostapd stopped!");
+                //         next_step();
+                //     });
+                // },
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
