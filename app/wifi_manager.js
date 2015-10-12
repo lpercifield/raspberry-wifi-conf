@@ -2,7 +2,9 @@ var _       = require("underscore")._,
     async   = require("async"),
     fs      = require("fs"),
     exec    = require("child_process").exec,
+    iwlist     = require("./iwlist"),
     config  = require("../config.json");
+var scanResult;
 
 // Better template format
 _.templateSettings = {
@@ -212,6 +214,15 @@ module.exports = function() {
                         "/etc/default/hostapd",
                         context, next_step);
                 },
+                function scan_networks(next_step){
+		_reboot_wireless_network(context.wifi_interface,function(){
+                  iwlist(function(error,result){
+                    scanResult = result;
+                    console.log(JSON.stringify(result));
+			next_step();
+                  });
+		});
+                },
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(context.wifi_interface, next_step);
@@ -235,7 +246,7 @@ module.exports = function() {
 
                 // TODO: Do we need to issue a reboot here?
 
-            ], callback);
+            ], callback(scanResult);
         });
     },
 
