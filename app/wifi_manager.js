@@ -143,6 +143,7 @@ module.exports = function() {
     _is_ap_enabled = function(callback) {
         _get_wifi_info(function(error, info) {
             if (error) return callback(error, null);
+            console.log(info.toString());
             return callback(null, _is_ap_enabled_sync(info));
         });
     },
