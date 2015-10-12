@@ -222,7 +222,8 @@ module.exports = function() {
 		                _reboot_wireless_network(context.wifi_interface,function(){
                       iwlist(function(error,result){
                         scanResult = result;
-			                  next_step();
+                        console.log("Got scan result")
+			                  next_step(scanResult);
                       });
 		                });
                 },
@@ -249,7 +250,7 @@ module.exports = function() {
 
                 // TODO: Do we need to issue a reboot here?
 
-            ], callback(null,scanResult))
+            ], function(){console.log("callingback now");callback(null,scanResult)})
         });
     },
 
