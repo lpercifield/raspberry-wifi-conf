@@ -246,7 +246,7 @@ module.exports = function() {
 
                 // TODO: Do we need to issue a reboot here?
 
-            ], callback(scanResult);
+            ], callback(scanResult)
         });
     },
 
