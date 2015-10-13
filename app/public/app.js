@@ -25,6 +25,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
         $scope.scan_running              = false;
         $scope.network_passcode          = "";
         $scope.show_passcode_entry_field = false;
+        $scope.show_success = false;
 
         // Scope filter definitions
         $scope.orderScanResults = function(cell) {
@@ -66,6 +67,8 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
                 console.log(response.data);
                 if (response.data.status == "SUCCESS") {
                     console.log("AP Enabled - nothing left to do...");
+                    $scope.show_passcode_entry_field = false;
+
                 }
             });
         }
@@ -116,6 +119,38 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "         <input type = 'password' placeholder = 'Passcode...' ng-model = 'passcode' />",
             "         <div class = 'btn btn-cancel' ng-click = 'reset(null)'>Cancel</div>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
+            "    </div>",
+            "</div>"
+        ].join("\n"),
+
+        // Link function to bind modal to the app
+        link: function(scope, element, attributes) {
+        },
+    };
+});
+
+/*****************************************************************************\
+    Directive to show / hide / clear the password prompt
+\*****************************************************************************/
+app.directive("rwcSuccess", function($timeout) {
+    return {
+        restrict: "E",
+
+        scope: {
+            visible:  "=",
+            passcode: "=",
+            reset:    "&",
+            submit:   "&",
+        },
+
+        replace: true,          // Use provided template (as opposed to static
+                                // content that the modal scope might define in the
+                                // DOM)
+        template: [
+            "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
+            "    <div class='box'>",
+            "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
         ].join("\n"),

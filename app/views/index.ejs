@@ -46,6 +46,10 @@
         submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
+    <rwc-success
+            visible     = "show_success"
+            submit      = "change_selection()" />
+
     <!-- Scripts load last -->
     <script src="/external/angularjs/angular.min.js"></script>
     <script src="/app.js"></script>
