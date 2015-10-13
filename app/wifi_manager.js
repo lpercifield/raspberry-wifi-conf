@@ -298,9 +298,7 @@ module.exports = function() {
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
-                },
-
-                function is
+                }
 
             ], callback);
         });
