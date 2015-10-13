@@ -116,7 +116,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
                                 // content that the modal scope might define in the
                                 // DOM)
         template: [
-            "<div>"
+            "<div>",
             "<div class='rwc-password-entry-container' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
             "         <input type = 'password' placeholder = 'Passcode...' ng-model = 'passcode' />",
@@ -129,7 +129,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
-            "</div>"
+            "</div>",
             "</div>"
         ].join("\n"),
 
