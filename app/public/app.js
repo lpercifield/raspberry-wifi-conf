@@ -116,6 +116,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
                                 // content that the modal scope might define in the
                                 // DOM)
         template: [
+            "<div>"
             "<div class='rwc-password-entry-container' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
             "         <input type = 'password' placeholder = 'Passcode...' ng-model = 'passcode' />",
@@ -129,37 +130,6 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
-        ].join("\n"),
-
-        // Link function to bind modal to the app
-        link: function(scope, element, attributes) {
-        },
-    };
-});
-
-/*****************************************************************************\
-    Directive to show / hide / clear the password prompt
-\*****************************************************************************/
-app.directive("rwcSuccess", function($timeout) {
-    return {
-        restrict: "E",
-
-        scope: {
-            visible:  "=",
-            passcode: "=",
-            reset:    "&",
-            submit:   "&",
-        },
-
-        replace: true,          // Use provided template (as opposed to static
-                                // content that the modal scope might define in the
-                                // DOM)
-        template: [
-            "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
-            "    <div class='box'>",
-            "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
-            "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
-            "    </div>",
             "</div>"
         ].join("\n"),
 
@@ -168,3 +138,35 @@ app.directive("rwcSuccess", function($timeout) {
         },
     };
 });
+
+// /*****************************************************************************\
+//     Directive to show / hide / clear the password prompt
+// \*****************************************************************************/
+// app.directive("rwcSuccess", function($timeout) {
+//     return {
+//         restrict: "E",
+//
+//         scope: {
+//             visible:  "=",
+//             passcode: "=",
+//             reset:    "&",
+//             submit:   "&",
+//         },
+//
+//         replace: true,          // Use provided template (as opposed to static
+//                                 // content that the modal scope might define in the
+//                                 // DOM)
+//         template: [
+//             "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
+//             "    <div class='box'>",
+//             "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
+//             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
+//             "    </div>",
+//             "</div>"
+//         ].join("\n"),
+//
+//         // Link function to bind modal to the app
+//         link: function(scope, element, attributes) {
+//         },
+//     };
+// });
