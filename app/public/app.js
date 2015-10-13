@@ -135,14 +135,14 @@ app.directive("rwcPasswordEntry", function($timeout) {
 \*****************************************************************************/
 app.directive("rwcSuccess", function($timeout) {
     return {
-        restrict: "E",
+        restrict: "A",
 
         scope: {
             visible:  "=",
             submit:   "&",
         },
 
-        replace: true,          // Use provided template (as opposed to static
+        replace: false,          // Use provided template (as opposed to static
                                 // content that the modal scope might define in the
                                 // DOM)
         template: [
