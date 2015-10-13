@@ -301,10 +301,10 @@ module.exports = function() {
                 },
                 function is_wifi_enabled(next_step){
                   _is_wifi_enabled(function(error, result_ip){
-                    if (error) return next_step(error);
+                    if (error) next_step(error);
                     if (result_ip) {
                       console.log("\nWifi connection is enabled with IP: " + result_ip);
-                      return next_step(null);
+                      next_step(null);
                     }
                   }
                 },
