@@ -299,11 +299,13 @@ module.exports = function() {
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
                 },
-                _is_wifi_enabled(function(error, result_ip){
-                  if (error) return callback(error);
-                  if (result_ip) {
+                function is_wifi_enabled(next_step){
+                  _is_wifi_enabled(function(error, result_ip){
+                    if (error) return next_step(error);
+                    if (result_ip) {
                       console.log("\nWifi connection is enabled with IP: " + result_ip);
-                      return callback(null);
+                      return next_step(null);
+                    }
                   }
                 }
 
