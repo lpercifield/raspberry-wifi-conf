@@ -40,6 +40,10 @@ module.exports = function(wifi_manager,scanResult, callback) {
         response.render("index");
     });
 
+    app.get("/status", function(request, response) {
+        response.render("status");
+    });
+
     // Setup HTTP routes for various APIs we wish to implement
     // the responses to these are typically JSON
     app.get("/api/rescan_wifi", function(request, response) {
