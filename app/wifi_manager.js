@@ -115,8 +115,8 @@ module.exports = function() {
         // If we are not an AP, and we have a valid
         // inet_addr - wifi is enabled!
         //console.log(JSON.stringify(info));
-        if (null        == _is_ap_enabled_sync(info) &&
-            "<unknown>" != info["inet_addr"]         &&
+        //if (null        == _is_ap_enabled_sync(info) &&
+        if ("<unknown>" != info["inet_addr"]         &&
             "<unknown>" == info["unassociated"] ) {
             return info["inet_addr"];
         }
@@ -218,15 +218,15 @@ module.exports = function() {
                         "/etc/default/hostapd",
                         context, next_step);
                 },
-                function scan_networks(next_step){
-		                _reboot_wireless_network(context.wifi_interface,function(){
-                      iwlist(function(error,result){
-                        scanResult = result;
-                        console.log("Got scan result")
-			                  next_step();
-                      });
-		                });
-                },
+                // function scan_networks(next_step){
+		            //     _reboot_wireless_network(context.wifi_interface,function(){
+                //       iwlist(function(error,result){
+                //         scanResult = result;
+                //         console.log("Got scan result")
+			          //         next_step();
+                //       });
+		            //     });
+                // },
 
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(context.wifi_interface, next_step);
@@ -260,10 +260,10 @@ module.exports = function() {
         _is_wifi_enabled(function(error, result_ip) {
             if (error) return callback(error);
 
-            // if (result_ip) {
-            //     console.log("\nWifi connection is enabled with IP: " + result_ip);
-            //     return callback(null);
-            // }
+            if (result_ip) {
+                console.log("\nWifi connection is enabled with IP: " + result_ip);
+                return callback(null);
+            }
 
             async.series([
 
@@ -299,6 +299,8 @@ module.exports = function() {
                 function reboot_network_interfaces(next_step) {
                     _reboot_wireless_network(config.wifi_interface, next_step);
                 },
+
+                function is
 
             ], callback);
         });
