@@ -68,6 +68,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout",
                 if (response.data.status == "SUCCESS") {
                     console.log("AP Enabled - nothing left to do...");
                     $scope.show_passcode_entry_field = false;
+                    $scope.show_success = true;
 
                 }
             });
