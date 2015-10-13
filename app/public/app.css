@@ -189,8 +189,27 @@ html, body {
     top: 100%;
     opacity: 0;
 }
+.rwc-success-container.hide-me {
+    top: 100%;
+    opacity: 0;
+}
 
 .rwc-password-entry-container .box {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    width: 320px;
+    height: 150px;
+
+    background: rgba(0,0,0,1.0);
+    border: 2px solid #666666;
+}
+.rwc-success-container .box {
     position: absolute;
     top:0;
     bottom: 0;
@@ -218,6 +237,23 @@ html, body {
 }
 
 .rwc-password-entry-container .box .btn {
+    width: 130px;
+    height: 40px; line-height: 40px;
+    text-align: center;
+
+    border: 2px solid #000000;
+
+    position: absolute;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition:    all 0.3s ease;
+    -ms-transition:     all 0.3s ease;
+    -o-transition:      all 0.3s ease;
+    transition:         all 0.3s ease;
+
+    cursor: pointer;
+}
+.rwc-success-container .box .btn {
     width: 130px;
     height: 40px; line-height: 40px;
     text-align: center;
