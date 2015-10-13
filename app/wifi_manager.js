@@ -307,8 +307,7 @@ module.exports = function() {
                       return next_step(null);
                     }
                   }
-                }
-
+                },
             ], callback);
         });
 
