@@ -124,7 +124,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
             "    </div>",
             "</div>",
-            "<div class='rwc-success-container' ng-class='{\"hide-me\": !successvisible}'>",
+            "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
             "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
