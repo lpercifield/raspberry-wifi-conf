@@ -43,11 +43,11 @@ module.exports = function(wifi_manager,scanResult, callback) {
     // Setup HTTP routes for various APIs we wish to implement
     // the responses to these are typically JSON
     app.get("/api/rescan_wifi", function(request, response) {
-        console.log("Server got /rescan_wifi");
-        console.log(JSON.stringify(scanResult));
-        //iwlist(function(error, result) {
-        log_error_send_success_with(scanResult[0], null, response);
-        //});
+        //console.log("Server got /rescan_wifi");
+        //console.log(JSON.stringify(scanResult));
+        iwlist(function(error, result) {
+        log_error_send_success_with(result[0], null, response);
+        });
     });
 
     app.post("/api/enable_wifi", function(request, response) {
@@ -69,8 +69,8 @@ module.exports = function(wifi_manager,scanResult, callback) {
                 response.redirect("/");
             }
             // Success! - exit
-            console.log("Wifi Enabled! - Exiting");
-            process.exit(0);
+            console.log("Wifi Enabled!");
+            //process.exit(0);
         });
     });
 
