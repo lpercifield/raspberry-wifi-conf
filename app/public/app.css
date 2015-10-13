@@ -68,7 +68,9 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
+.scan-results-container .textarea{
+  font-size: 24pt;
+}
 .scan-result {
     color: white;
     position: relative;

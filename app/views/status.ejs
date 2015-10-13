@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RpiWifiConfig">
+
+<head>
+    <title>JunctionBox Wifi Config</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="/external/font-awesome/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="/app.css">
+</head>
+
+
+<body ng-controller = "AppController"
+      ng-keyup      = "$event.keyCode == 27 ? change_selection(null) : ''">
+
+    <div class = "page-header">
+        <i class = "fa fa-wifi"></i> Success!
+    </div>
+
+    <div class = "page-content">
+        <div class = "scan-results-container">
+          <textarea>
+            Everything looks good! You can disconnect from JunctionBox!
+          </textarea>
+
+        </div>
+    </div>
+
+
+    <!-- Scripts load last -->
+    <script src="/external/angularjs/angular.min.js"></script>
+    <script src="/app.js"></script>
+
+</body>
+
+</html>

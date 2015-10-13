@@ -69,6 +69,7 @@ module.exports = function(wifi_manager,scanResult, callback) {
                 response.redirect("/");
             }
             // Success! - exit
+            response.redirect("/status");
             console.log("Wifi Enabled!");
             //process.exit(0);
         });
