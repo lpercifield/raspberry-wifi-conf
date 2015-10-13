@@ -106,6 +106,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
 
         scope: {
             visible:  "=",
+            successvisible:  "=",
             passcode: "=",
             reset:    "&",
             submit:   "&",
@@ -120,6 +121,12 @@ app.directive("rwcPasswordEntry", function($timeout) {
             "         <input type = 'password' placeholder = 'Passcode...' ng-model = 'passcode' />",
             "         <div class = 'btn btn-cancel' ng-click = 'reset(null)'>Cancel</div>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
+            "    </div>",
+            "</div>",
+            "<div class='rwc-success-container' ng-class='{\"hide-me\": !successvisible}'>",
+            "    <div class='box'>",
+            "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
         ].join("\n"),
