@@ -103,7 +103,6 @@ app.service("PiManager", ["$http",
 app.directive("rwcPasswordEntry", function() {
     return {
         restrict: "E",
-        transclude: true,
         scope: {
             visible:  "=",
             passcode: "=",
