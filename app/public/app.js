@@ -55,6 +55,10 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
             $scope.selected_cell = cell;
             $scope.show_passcode_entry_field = (cell != null) ? true : false;
         }
+        $scope.change_selection = function() {
+            $scope.text_info = "";
+            $scope.show_success =  false;
+        }
 
 
         $scope.submit_selection = function() {
