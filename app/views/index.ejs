@@ -40,7 +40,7 @@
     </div>
     <rwc-success
             visible     = "show_success"
-            submit      = "change_selection()"></rwc-success>
+            submit      = "{show_success=false}"></rwc-success>
 
     <rwc-password-entry
         visible     = "show_passcode_entry_field"
@@ -48,8 +48,6 @@
         reset       = "change_selection()"
         submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" ></rwc-password-entry>
-    <lw
-      items = "myThing"/>
 
 
 
