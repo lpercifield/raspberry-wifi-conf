@@ -146,9 +146,9 @@ app.directive("rwcSuccess", function() {
                                 // content that the modal scope might define in the
                                 // DOM)
         template: [
-            "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
+            "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
-            "         <h1 ng-model = 'success' >Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <h1 >Looks Good, you can disconnect from JunctionBox</h1>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
