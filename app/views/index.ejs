@@ -38,6 +38,9 @@
 
         </div>
     </div>
+    <rwc-success
+            visible     = "show_success"
+            submit      = "change_selection()" />
 
     <rwc-password-entry
         visible     = "show_passcode_entry_field"
@@ -46,9 +49,7 @@
         submit      = "submit_selection()"
         ng-keydown  = "{esc: 'close_password_entry()'}" />
 
-    <rwc-success-container
-            visible     = "show_success"
-            submit      = "change_selection()" />
+
 
     <!-- Scripts load last -->
     <script src="/external/angularjs/angular.min.js"></script>
