@@ -111,9 +111,9 @@ app.directive("rwcPasswordEntry", function() {
             submit:   "&",
         },
 
-        replace: true,          // Use provided template (as opposed to static
-                                // content that the modal scope might define in the
-                                // DOM)
+        // replace: true,          // Use provided template (as opposed to static
+        //                         // content that the modal scope might define in the
+        //                         // DOM)
         template: [
             "<div class='rwc-password-entry-container' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
@@ -142,9 +142,9 @@ app.directive("rwcSuccess", function() {
             submit:   "&",
         },
 
-        replace: true,          // Use provided template (as opposed to static
-                                // content that the modal scope might define in the
-                                // DOM)
+        // replace: true,          // Use provided template (as opposed to static
+        //                         // content that the modal scope might define in the
+        //                         // DOM)
         template: [
             "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
