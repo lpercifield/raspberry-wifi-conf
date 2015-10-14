@@ -122,7 +122,7 @@ app.directive("rwcPasswordEntry", function() {
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
             "    </div>",
             "</div>",
-        ],
+        ].join("\n"),
 
         // Link function to bind modal to the app
         link: function(scope, element, attributes) {
