@@ -103,7 +103,7 @@ app.service("PiManager", ["$http",
 app.directive("rwcPasswordEntry", function() {
     return {
         restrict: "E",
-
+        transclude: true,
         scope: {
             visible:  "=",
             passcode: "=",
@@ -136,7 +136,7 @@ app.directive("rwcPasswordEntry", function() {
 app.directive("rwcSuccess", function() {
     return {
         restrict: "E",
-
+        transclude: true,
         scope: {
             visible:  "=",
             submit:   "&",
