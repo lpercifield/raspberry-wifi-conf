@@ -16,9 +16,9 @@ Dependencies:
 Description:
     Main application controller
 \******************************************************************************/
-app.controller("AppController", ["PiManager", "$scope", "$location", "$timeout", "$document",
+app.controller("AppController", ["PiManager", "$scope", "$location",
 
-    function(PiManager, $scope, $location, $timeout, $document) {
+    function(PiManager, $scope, $location) {
         // Scope variable declaration
         $scope.scan_results              = [];
         $scope.selected_cell             = null;
@@ -100,7 +100,7 @@ app.service("PiManager", ["$http",
 /*****************************************************************************\
     Directive to show / hide / clear the password prompt
 \*****************************************************************************/
-app.directive("rwcPasswordEntry", function($timeout) {
+app.directive("rwcPasswordEntry", function() {
     return {
         restrict: "E",
 
@@ -133,7 +133,7 @@ app.directive("rwcPasswordEntry", function($timeout) {
 /*****************************************************************************\
     Directive to show / hide / clear the password prompt
 \*****************************************************************************/
-app.directive("rwcSuccess", function($document) {
+app.directive("rwcSuccess", function() {
     return {
         restrict: "A",
 
