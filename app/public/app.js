@@ -142,7 +142,7 @@ app.directive("rwcSuccess", function($document) {
             submit:   "&",
         },
 
-        replace: false,          // Use provided template (as opposed to static
+        replace: true,          // Use provided template (as opposed to static
                                 // content that the modal scope might define in the
                                 // DOM)
         template: [
