@@ -307,6 +307,8 @@ module.exports = function() {
                     if (result_ip) {
                       console.log("\nWifi connection is enabled with IP: " + result_ip);
                       next_step(null);
+                    }else {
+                      next_step("Something went wrong");
                     }
                   })
                 },
