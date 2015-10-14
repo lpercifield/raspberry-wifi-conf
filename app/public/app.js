@@ -71,10 +71,13 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
 
             PiManager.enable_wifi(wifi_info).then(function(response) {
                 console.log(response.data);
+                $scope.show_passcode_entry_field = false;
+                $scope.text_info = "Checking to make sure things are working...";
+                $scope.show_success = true;
                 if (response.data.status == "SUCCESS") {
                     console.log("AP Enabled - nothing left to do...");
                     $scope.show_passcode_entry_field = false;
-                    $scope.text_info = "SUCCESS";
+                    $scope.text_info = "SUCCESS - you can disconnect from JunctionBox";
                     $scope.show_success = true;
 
                 }
