@@ -223,6 +223,9 @@ html, body {
     background: rgba(0,0,0,1.0);
     border: 2px solid #666666;
 }
+.rwc-success-container .h1 {
+  font-size: 18pt;
+}
 .rwc-success-container .box {
     position: absolute;
     top:0;

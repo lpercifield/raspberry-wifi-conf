@@ -26,6 +26,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
         $scope.network_passcode          = "";
         $scope.show_passcode_entry_field = false;
         $scope.show_success = false;
+        $scope.text_info         = "";
 
         // Scope filter definitions
         $scope.orderScanResults = function(cell) {
@@ -54,6 +55,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
             $scope.selected_cell = cell;
             $scope.show_passcode_entry_field = (cell != null) ? true : false;
         }
+
 
         $scope.submit_selection = function() {
             if (!$scope.selected_cell) return;
@@ -103,6 +105,7 @@ app.directive("rwcSuccess", function() {
         transclude: true,
         scope: {
             visible:  "=",
+            text: "=",
             submit:   "&",
         },
 
@@ -112,7 +115,7 @@ app.directive("rwcSuccess", function() {
         template: [
             "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
-            "         <h1 >Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <h1 ng-model = 'text_info'/>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
