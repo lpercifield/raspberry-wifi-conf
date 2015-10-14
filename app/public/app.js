@@ -55,7 +55,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
             $scope.selected_cell = cell;
             $scope.show_passcode_entry_field = (cell != null) ? true : false;
         }
-        $scope.change_selection = function() {
+        $scope.change_success = function() {
             $scope.text_info = "";
             $scope.show_success =  false;
         }
@@ -119,7 +119,7 @@ app.directive("rwcSuccess", function() {
         template: [
             "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
-            "         <h1 ng-model = 'text_info'/>",
+            "         <h1 ng-model = 'text_info'>{{text}}</h1>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
