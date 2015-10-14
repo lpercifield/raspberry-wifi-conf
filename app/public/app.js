@@ -97,6 +97,33 @@ app.service("PiManager", ["$http",
 
 );
 
+app.directive("rwcSuccess", function() {
+    return {
+        restrict: "E",
+        transclude: true,
+        scope: {
+            visible:  "=",
+            submit:   "&",
+        },
+
+        // replace: true,          // Use provided template (as opposed to static
+        //                         // content that the modal scope might define in the
+        //                         // DOM)
+        template: [
+            "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
+            "    <div class='box'>",
+            "         <h1 >Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
+            "    </div>",
+            "</div>"
+        ].join("\n"),
+
+        // Link function to bind modal to the app
+        link: function(scope, element, attributes) {
+        },
+    };
+});
+
 /*****************************************************************************\
     Directive to show / hide / clear the password prompt
 \*****************************************************************************/
@@ -132,29 +159,17 @@ app.directive("rwcPasswordEntry", function() {
 /*****************************************************************************\
     Directive to show / hide / clear the password prompt
 \*****************************************************************************/
-app.directive("rwcSuccess", function() {
+
+
+app.directive('lw', function(){
     return {
-        restrict: "E",
-        transclude: true,
+        restrict: 'E',
         scope: {
-            visible:  "=",
-            submit:   "&",
+            items: "="
         },
-
-        // replace: true,          // Use provided template (as opposed to static
-        //                         // content that the modal scope might define in the
-        //                         // DOM)
-        template: [
-            "<div class='rwc-success-container' ng-model = 'success' ng-class='{\"hide-me\": !visible}'>",
-            "    <div class='box'>",
-            "         <h1 >Looks Good, you can disconnect from JunctionBox</h1>",
-            "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
-            "    </div>",
-            "</div>"
-        ].join("\n"),
-
+        template: '<h1 >Looks Good, you can disconnect from JunctionBox</h1>',
         // Link function to bind modal to the app
         link: function(scope, element, attributes) {
         },
-    };
+    }
 });
