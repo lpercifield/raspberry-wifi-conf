@@ -300,6 +300,7 @@ module.exports = function() {
                     _reboot_wireless_network(config.wifi_interface, next_step);
                 },
                 function is_wifi_enabled(next_step){
+                  console.log("checking wifi");
                   _is_wifi_enabled(function(error, result_ip){
                     if (error) {
                       next_step(error);
