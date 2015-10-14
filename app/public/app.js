@@ -80,6 +80,9 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
                     $scope.text_info = "SUCCESS - you can disconnect from JunctionBox";
                     $scope.show_success = true;
 
+                }else{
+                  $scope.text_info = "Something went wrong, try it one more time";
+                  $scope.show_success = true;
                 }
             });
         }
