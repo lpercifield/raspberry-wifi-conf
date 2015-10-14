@@ -122,7 +122,7 @@ app.directive("rwcPasswordEntry", function() {
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>Submit</div>",
             "    </div>",
             "</div>",
-        ].join("\n"),
+        ],
 
         // Link function to bind modal to the app
         link: function(scope, element, attributes) {
@@ -135,7 +135,7 @@ app.directive("rwcPasswordEntry", function() {
 \*****************************************************************************/
 app.directive("rwcSuccess", function() {
     return {
-        restrict: "A",
+        restrict: "E",
 
         scope: {
             visible:  "=",
@@ -148,7 +148,7 @@ app.directive("rwcSuccess", function() {
         template: [
             "<div class='rwc-success-container' ng-class='{\"hide-me\": !visible}'>",
             "    <div class='box'>",
-            "         <h1>Looks Good, you can disconnect from JunctionBox</h1>",
+            "         <h1 ng-model = 'success' >Looks Good, you can disconnect from JunctionBox</h1>",
             "         <div class = 'btn btn-ok' ng-click = 'submit()'>OK</div>",
             "    </div>",
             "</div>"
