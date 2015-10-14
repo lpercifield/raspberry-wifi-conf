@@ -70,12 +70,14 @@ module.exports = function(wifi_manager,scanResult, callback) {
                 wifi_manager.enable_ap_mode(config.access_point.ssid, function(error) {
                     console.log("... AP mode reset");
                 });
-                response.redirect("/");
+                response.send({ status: "ERROR", error: error});
+            }else{
+              response.send({ status: "SUCCESS"});
             }
             // Success! - exit
             //var success_obj = [];
             //success_obj["status"] = "SUCCESS";
-            response.send({ status: "SUCCESS"});
+
             //response.("/status");
             //console.log("Wifi Enabled!");
             //process.exit(0);
