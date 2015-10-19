@@ -314,7 +314,9 @@ module.exports = function() {
                     }
                   })
                 },
-            ], callback(err,result));
+            ], function(err,result){
+              callback(err,result);
+            });
         });
 
     };
