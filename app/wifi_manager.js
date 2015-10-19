@@ -262,7 +262,7 @@ module.exports = function() {
 
             if (result_ip) {
                 console.log("\nWifi connection is enabled with IP: " + result_ip);
-                return callback(null);
+                return callback(null,result_ip);
             }
 
             async.series([
@@ -307,14 +307,14 @@ module.exports = function() {
                     }
                     if (result_ip) {
                       console.log("\nWifi connection is enabled with IP: " + result_ip);
-                      next_step(null);
+                      next_step(null,result_ip);
                     }else {
                       console.log("something went wrong");
                       next_step("Something went wrong");
                     }
                   })
                 },
-            ], callback);
+            ], callback(err,result));
         });
 
     };

@@ -76,6 +76,7 @@ app.controller("AppController", ["PiManager", "$scope", "$location",
                 console.log(response.data);
                 if (response.data.status == "SUCCESS") {
                     console.log("AP Enabled - nothing left to do...");
+                    console.log("IP address is: "+response.data.result);
                     $scope.show_passcode_entry_field = false;
                     $scope.text_info = "SUCCESS - you can disconnect from JunctionBox";
                     $scope.show_success = true;

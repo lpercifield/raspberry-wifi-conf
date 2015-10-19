@@ -63,7 +63,7 @@ module.exports = function(wifi_manager,scanResult, callback) {
 
         // TODO: If wifi did not come up correctly, it should fail
         // currently we ignore ifup failures.
-        wifi_manager.enable_wifi_mode(conn_info, function(error) {
+        wifi_manager.enable_wifi_mode(conn_info, function(error,result) {
             if (error) {
                 console.log("Enable Wifi ERROR: " + error);
                 console.log("Attempt to re-enable AP mode");
@@ -72,7 +72,7 @@ module.exports = function(wifi_manager,scanResult, callback) {
                 });
                 response.send({ status: "ERROR", error: error});
             }else{
-              response.send({ status: "SUCCESS"});
+              response.send({ status: "SUCCESS",result:result});
             }
             // Success! - exit
             //var success_obj = [];
